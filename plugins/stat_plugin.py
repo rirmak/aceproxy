@@ -32,7 +32,7 @@ class Stat(AceProxyPlugin):
         GEOIP_LOOKUP_URL = 'http://api.2ip.ua/geo.json?ip=%s'
         lookup_url = GEOIP_LOOKUP_URL % ip_address
         req = urllib2.Request(lookup_url, headers={'User-Agent' : "Magic Browser"})
-        response = json.loads(urllib2.urlopen(req, timeout=5).read())
+        response = json.loads(urllib2.urlopen(req, timeout=10).read())
         
         return {'country_code' : response['country_code'],
                 'country'      : response['country'],
